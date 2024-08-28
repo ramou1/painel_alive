@@ -1,0 +1,83 @@
+nb-card-body {
+    box-shadow: none;
+    overflow: scroll;
+
+    #tasks-table {
+        width: 1500px;
+    }
+
+    #users-table {
+        width: 100%;
+    //     width: 900px;
+    }
+
+    #tasks-table,
+    #users-table {
+        border-radius: 20px;
+
+        tr {
+            border-bottom: 2px solid var(--color-basic-200);
+            background: var(--color-primary-transparent-100);
+            height: 40px !important;
+        }
+
+        .tasks-table-title,
+        .users-table-title {
+            background: var(--color-warning-200);
+            color: var(--color-primary-800);
+            font-size: 11px;
+            text-align: center;
+            text-transform: uppercase;
+
+            th {
+                line-height: 13px;
+                padding: 0 20px;
+                max-width: 125px;
+                //  max-width: 100px;
+            }
+        }
+
+        tr.tasks-table-data,
+        tr.users-table-data {
+            cursor: pointer;
+            font-size: 12px;
+            text-align: center;
+
+            td {
+                button {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+
+                button+button {
+                    margin: 0;
+                }
+            }
+
+            td.tasks-list {
+                p {
+                    font-size: 10px;
+                }
+            }
+
+            td.tags {
+                //  max-width: 250px;
+
+                nb-tag {
+                    font-size: 10px !important;
+                    line-height: 18px !important;
+                    margin: 3px;
+                }
+            }
+
+            .no-data {
+                color: #F64040;
+            }
+        }
+
+        tr.tasks-table-data:hover,
+        tr.users-table-data:hover {
+            background: var(--color-primary-transparent-200);
+        }
+    }
+}

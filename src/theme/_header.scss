@@ -1,0 +1,37 @@
+nb-card-header {
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px
+    }
+
+    button.add-button {
+        text-transform: initial !important;
+        font-weight: 400 !important;
+        font-size: 13px !important;
+        
+        nb-icon {
+            width: 15px !important;
+            margin-right: 4px !important;
+        }
+    }
+
+    .custom-search {
+        width: 30%;
+    }
+
+    .custom-search input {
+        font-size: 13px !important;
+        font-weight: 400 !important;
+    }
+
+    .custom-search input::placeholder {
+        font-size: 13px !important; 
+    }
+
+    .right-actions {
+        display: flex;
+        gap: 15px;
+    }
+}

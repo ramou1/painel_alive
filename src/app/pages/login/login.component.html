@@ -1,1 +1,25 @@
-<p>login works!</p>
+<nb-layout>
+  <div class="overlay"></div>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-body>
+        <form (ngSubmit)="login()">
+          <nb-form-field>
+            <input nbInput placeholder="Username" />
+          </nb-form-field>
+          <nb-form-field>
+            <input nbInput type="password" placeholder="Password" />
+          </nb-form-field>
+
+          <div class="auth-links">
+            <nb-checkbox>Lembrar Login</nb-checkbox>
+            <a href="#" class="forgot-password">Esqueci minha senha</a>
+          </div>
+
+          <button nbButton status="primary" type="submit">Login</button>
+
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

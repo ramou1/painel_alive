@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@nebular/date-fns": "^14.0.0",
     "@nebular/eva-icons": "^14.0.0",
     "@nebular/theme": "^14.0.0",
     "rxjs": "~7.8.0",

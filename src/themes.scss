@@ -1,0 +1,35 @@
+@forward '@nebular/theme/styles/theming';
+@use '@nebular/theme/styles/theming' as *;
+@use '@nebular/theme/styles/themes/cosmic';
+
+@use "theme/card";
+@use "theme/dialog";
+@use "theme/header";
+@use "theme/form";
+@use "theme/menu";
+@use "theme/progress";
+@use "theme/typography";
+
+$nb-themes: nb-register-theme((font-family: 'Effra'), cosmic, cosmic);
+
+* {
+  font-family: 'Effra' !important;
+}
+
+.content {
+  margin: 15px !important;
+}
+
+div.divisor {
+  height: 3px;
+  background: #bff6e0;
+  margin: 45px 0;
+}
+
+nb-layout-header nav {
+  justify-content: center !important;
+
+  img.logo_task {
+    width: 140px;
+  }
+}
