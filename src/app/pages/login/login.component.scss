@@ -2,8 +2,8 @@ nb-layout {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-image: url('/src/assets/login-bg.jpg'); // Substitua com o caminho da sua imagem
+    height: 90vh;
+    background-image: url('/assets/images/login-bg.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -54,6 +54,8 @@ nb-input {
     }
 
     .forgot-password {
+        cursor: pointer;
+        margin: 0;
         font-size: 13px;
         color: #007bff;
         text-decoration: none;
