@@ -1,29 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { NbSidebarService, NbMenuItem, NbLayoutModule, NbSidebarModule, NbMenuModule, NbIconModule, NbActionsModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { NbCardModule, NbIconModule, NbLayoutModule, NbMenuItem, NbMenuModule, NbSidebarModule, NbSidebarService } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
-    RouterOutlet, 
-    NbLayoutModule, 
+    CommonModule,
+    RouterOutlet,
+    NbLayoutModule,
     NbSidebarModule,
     NbIconModule,
     NbEvaIconsModule,
     NbMenuModule,
-    NbCardModule,
+    NbActionsModule, // Adiciona o módulo de ações
   ],
   providers: [NbSidebarService],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'alive_web';
-  showSidebar = true;
+  isUserAuthorized = false;
+  isMobile = false;
 
   public menu: NbMenuItem[] = [
     {
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
       link: '/dashboard',
       pathMatch: 'full',
     },
-    { 
+    {
       title: 'Brands',
       icon: 'shopping-cart-outline',
       link: '/brands',
@@ -46,11 +47,37 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private sidebarService: NbSidebarService) { }
 
   ngOnInit() {
+    this.isUserAuthorized = this.checkUserAuthorization();
+    this.checkIfMobile();
+    
     this.router.events.subscribe(() => {
-      this.showSidebar = !this.router.url.includes('/login');
+      if (this.router.url.includes('/login')) {
+        this.sidebarService.collapse('menu-sidebar'); 
+        this.isMobile = false;
+      } else if (!this.isMobile) {
+        this.sidebarService.expand('menu-sidebar');
+      }
     });
+  }
+
+  // Detecta a largura da tela para determinar se é mobile
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkIfMobile();
+  }
+
+  checkIfMobile() {
+    this.isMobile = window.innerWidth < 768; // Define 768px como ponto de ruptura para mobile
+  }
+
+  toggleSidebar(): void {
+    this.sidebarService.toggle(true, 'menu-sidebar');
+  }
+
+  checkUserAuthorization(): boolean {
+    return true;
   }
 }

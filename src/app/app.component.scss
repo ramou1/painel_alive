@@ -1,0 +1,41 @@
+nb-layout-header {
+    // background-color: #2a2a52;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: auto;
+  
+    nb-actions {
+      flex-grow: 1;
+      justify-content: flex-start;
+    }
+  }
+  
+  nb-action {
+    margin-right: 0; /* Remove qualquer margem indesejada */
+  }
+  
+  
+
+//   nb-layout {
+//     min-height: 100vh; /* Garante que o layout ocupe toda a altura da viewport */
+//   }
+  
+//   nb-sidebar {
+//     width: 250px; /* Largura do menu lateral */
+//     min-width: 250px;
+//     max-width: 250px;
+//   }
+  
+//   @media (max-width: 767px) {
+//     nb-layout-header {
+//       height: 60px;
+//       padding: 0 15px;
+//     }
+  
+//     nb-sidebar {
+//       width: 100%; /* Faz com que o menu lateral preencha a largura total no mobile */
+//       max-width: 100%;
+//     }
+//   }
+  

@@ -1,9 +1,23 @@
+<!-- <nb-layout>
+  <nb-sidebar tag="menu-sidebar" *ngIf="isUserAuthorized">
+    <nb-menu [items]="menu"></nb-menu>
+  </nb-sidebar>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+</nb-layout> -->
+
 <nb-layout>
-  <ng-container *ngIf="showSidebar">
-    <nb-sidebar>
-      <nb-menu [items]="menu"></nb-menu>
-    </nb-sidebar>
-  </ng-container>
+  <nb-layout-header fixed *ngIf="isMobile">
+    <nb-actions size="medium">
+      <nb-action icon="menu-outline" (click)="toggleSidebar()"></nb-action>
+    </nb-actions>
+  </nb-layout-header>
+
+  <nb-sidebar tag="menu-sidebar" *ngIf="isUserAuthorized">
+    <nb-menu [items]="menu"></nb-menu>
+  </nb-sidebar>
 
   <nb-layout-column>
     <router-outlet></router-outlet>
